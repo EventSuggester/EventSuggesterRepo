@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>Cinema</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel='stylesheet' type='text/css' href='./static/eventsuggester.css'/>
+</head>
+<body>
+    <div id="content"></div>
+    <script>
+        function test(response) {
+            console.log(response);
+            content = "";
+            for (i = 0; i < response.results.length; i++) {
+                content += "<div class='moviecard'>";
+            	content += "<img src='https://image.tmdb.org/t/p/w500" + response.results[i].poster_path + "'>";
+            	content += "<h1>" + response.results[i].title + "</h1>";
+            	content += "<p>" + response.results[i].overview + "</p>";
+                content += "</div>";
+            }
+            document.getElementById("content").innerHTML = content;
+        }
+    </script>
+
+    <script src="https://api.themoviedb.org/3/movie/now_playing?api_key=94a7e614aff8778905e482a699819375&language=tr-TR&page=1&region=TR&callback=test"></script>
+
+</body>
+</html>

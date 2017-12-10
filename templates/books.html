@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Books</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel='stylesheet' type='text/css' href='./static/eventsuggester.css'/>
+    <link rel='stylesheet' type='text/css' href='./static/mobil.css'/>
+</head>
+<body>
+    <div id="content"></div>
+    <script>
+        function test(response) {
+            console.log(response)
+            content = "";
+            for (i = 0; i < 3; i++) {
+                index = Math.floor((Math.random() * response.results.length))
+                content += "<div class='card col-4'>";
+                content += "<img style='max-width:130px;display:block;margin:auto' src='" + response.results[index].artworkUrl100 + "'>";
+                content += "<h1>" + response.results[index].trackName + "</h1>";
+                content += "<h2>" + response.results[index].artistName + "</h2>";
+                content += "<p>" + response.results[index].description + "</p>";
+                content += "</div>";
+            }
+            document.getElementById("content").innerHTML += content;
+        }
+    </script>
+
+    <script src="https://itunes.apple.com/search?term=book&entity=ebook&genreId={{id}}&limit=200&callback=test"></script>
+
+</body>
+</html>

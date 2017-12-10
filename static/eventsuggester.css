@@ -1,0 +1,143 @@
+body {
+	font-family: Verdana;
+}
+
+.card h1, .card h2, .card h3 {
+  text-align: center;
+}
+
+.moviecard img {
+  display: block;
+  margin: auto;
+}
+.moviecard h1 {
+  text-align: center;
+}
+.moviecard p {
+  text-align: center;
+  max-width: 500px;
+  margin: auto;
+}
+.moviecard {
+  margin-bottom: 120px;
+}
+
+.concertcard h1, .concertcard h2, .concertcard h3, .concertcard p {
+  text-align: center;
+}
+.concertcard {
+  max-width: 500px;
+  margin: auto;
+  margin-bottom: 150px;
+}
+
+#home_page{
+	background-image:url(event-back.jpg);
+}
+#home_page .header{
+	/*! width:600px; */
+	/*! margin:auto; */
+	color:white;
+	text-align: center;
+}
+#home_page .first_choose{
+	/*! margin:auto; */
+	/*! width:400px; */
+	margin-top:100px;
+	color:white;
+	text-align: center;
+}
+#home_page .second_choose{
+	/*! margin:auto; */
+	/*! width:500px; */
+	color:white;
+	margin-top:50px;	
+	text-align: center;
+}
+#home_page .third_choose{
+	/*! margin:auto; */
+	/*! width:500px; */
+	margin-top:50px;
+	color:white;
+	text-align: center;
+	/*! padding: auto; */
+}
+#home_page .button1{
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+	animation-name:button1;
+	animation-duration:10s;
+}
+#home_page .button2 {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+#home_page .button2:hover {background-color: #3e8e41}
+#home_page .button2:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+#home_page .selection select {
+	background: transparent;
+	border: none;
+	font-size: 14px;
+	height: 29px;
+	padding: 5px;
+	width: 268px;
+	/*! text-align: center; */
+	/*! margin: 20px; */
+}
+#home_page .selection option {
+	background-color:#58B14C;
+	color:white;
+}
+#home_page .selection {
+	background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+	height: 29px;
+	overflow: hidden;
+	width: 240px;
+	background-color: #58B14C;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+#home_page input {
+	background-color: #4CAF50;
+	color:white;
+	height:50px;
+	/*! margin-left:25px; */
+	border: none;
+	border-radius: 5px;
+	font-size: 18px;
+}
+#home_page .selection, input {
+	/*! float:left; */
+	/*! margin: au; */
+	text-align: center;
+	margin: auto;
+	margin-bottom: 20px;
+}
+@keyframes button1 {
+    from {background-color: red;}
+    to {background-color: green;}
+}

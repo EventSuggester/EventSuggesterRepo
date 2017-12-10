@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Concert</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel='stylesheet' type='text/css' href='./static/eventsuggester.css'/>
+</head>
+<body>
+    <div id="content"></div>
+    <script>
+        function test(response) {
+            console.log(response);
+            content = "";
+            event = response.events.event;
+            for (i = 0; i < event.length; i++) {
+                content += "<div class='concertcard'>"
+            	content += "<h1>" + event[i].title + "</h1>";
+            	if (event[i].start_time != null)
+            		content += "<h2>" + event[i].start_time + "</h2>";
+            	if (event[i].venue_name != null)
+            		content += "<h3>" + event[i].venue_name + "</h3>";
+            	if (event[i].venue_address != null)
+            		content += "<h3>" + event[i].venue_address + "</h3>";
+            	if (event[i].description != null)
+            		content += "<p>" + event[i].description + "</p>";
+            	else content += "<p>There is no description</p>";
+                content += "</div>";
+            }
+            document.getElementById("content").innerHTML = content;
+        }
+    </script>
+
+    <script src="http://api.eventful.com/json/events/search?app_key=26jxKNCs66VnnJGc&date=This Week&category=music&location=Istanbul&callback=test"></script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>Cultural Promenade</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel='stylesheet' type='text/css' href='./static/eventsuggester.css'/>
+    <link rel='stylesheet' type='text/css' href='./static/mobil.css'/>
+</head>
+<body>
+{% for i in range(0,number) %}
+	{% if i == random[0] or i == random[1] or i == random[2] %}
+	<div class="col-4 card">
+	    <h1>{{ names[i] }}</h1>
+	    <img src='{{imgurls[i]}}' style='max-width:400px; width: auto; display: block; margin: auto'>
+	    <p style="text-align: center; font-size: 20px">
+	        {% for address in addresses[i] %}
+	            {{ address }}
+	        {% endfor %}
+	    </p>
+	</div>
+    {% endif %}
+{% endfor %}
+</body>
+</html>

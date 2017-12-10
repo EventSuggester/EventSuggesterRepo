@@ -1,0 +1,204 @@
+<html>
+<head>
+<title>Event Suggester</title>
+<link rel='stylesheet' type='text/css' href='./static/eventsuggester.css'/>
+</head>
+
+<body id="home_page">
+
+<h1 id="header" class="header">EVENT SUGGESTER</h1>
+
+<div id="first_choose" class="first_choose">
+<h2> Choose place of the suggesting event: <h2>
+<button type="button" onclick="choose_InorOut('indoor')" class="button1">INDOOR</button> 
+<button type="button" onclick="choose_InorOut('outdoor')" class="button1">OUTDOOR</button>
+</div>
+
+<div id="second_choose"class="second_choose">
+</div>
+
+<div id="third_choose"class="third_choose">
+</div>
+
+
+</body>
+
+</html>
+
+
+<script>
+function choose_InorOut( place) {
+	if(place === "indoor"){
+		document.getElementById("second_choose").innerHTML = indoor_form();
+	}
+	else if( place === "outdoor"){
+		document.getElementById("second_choose").innerHTML = outdoor_form();
+	}
+}
+
+function indoor_form(){
+	return '<h2 style="margin:auto;width:400px;margin-bottom:50px;">Select type of indoor event</h2>' +
+			'<button type="button" onclick="game_form()" class="button2"> Game </button> ' +
+			'<button type="button" onclick="music_form()" class="button2"> Music </button> ' +
+			'<button type="button" onclick="movie_form()" class="button2"> Movie </button> ' +
+			'<button type="button" onclick="book_form()" class="button2"> Book </button> ' +
+			'<br><br>'
+
+}
+
+function outdoor_form(){
+	return '<h2 style="margin:auto;width:400px;margin-bottom:50px;">Select type of outdoor event</h2>' +
+			'<button type="button" onclick="cultural_form()" class="button2"> Cultural Promenade </button> ' +
+			'<a href="/cinema"><button type="button" onclick="cinema_form()" class="button2"> Cinema </button></a> ' +
+			'<a href="/concert"><button type="button" onclick="concert_form()" class="button2"> Concert </button></a> ' +
+			'<br><br>'
+
+}
+
+function music_form(){
+	document.getElementById("third_choose").innerHTML= '<h2>Select type of the music</h2>' +
+		'<form action="/music" target="_self" method="POST">'+
+		'<div class="selection">'+
+		'<select name="genres">' +
+		'<option value="2">Blues</option>' +
+		'<option value="3">Comedy</option>' +
+		'<option value="4">Children\'s Music</option>' +
+		'<option value="5">Classical</option>' +
+		'<option value="6">Country</option>' +
+		'<option value="7">Electronic</option>' +
+		'<option value="8">Holiday</option>' +
+		'<option value="9">Opera</option>' +
+		'<option value="11">Jazz</option>' +
+		'<option value="12">Latino</option>' +
+		'<option value="13">New Age</option>' +
+		'<option value="14">Pop</option>' +
+		'<option value="15">R&B/Soul</option>' +
+		'<option value="16">Soundtrack</option>' +
+		'<option value="17">Dance</option>' +
+		'<option value="18">Hip-Hop/Rap</option>' +
+		'<option value="19">World</option>' +
+		'<option value="20">Alternative</option>' +
+		'<option value="21">Rock</option>' +
+		'<option value="22">Christian&Gospel</option>' +
+		'<option value="23">Vocal</option>' +
+		'<option value="24">Reggae</option>' +
+		'<option value="25">Easy Listening</option>' +
+		'<option value="27">J-Pop</option>' +
+		'<option value="28">Enka</option>' +
+		'<option value="29">Anime</option>' +
+		'<option value="30">Kayokyoku</option>' +
+		'<option value="50">Fitness&Workout</option>' +
+		'<option value="51">K-Pop</option>' +
+		'<option value="52">Karaoke</option>' +
+		'<option value="53">Instrumental</option>' +
+		'</select>' +
+		'</div>' +
+		'<input type="submit" class="w3-button w3-round-large"  value="Choose">' +
+		'</form>';
+}
+function book_form(){
+	document.getElementById("third_choose").innerHTML= '<h2>Select type of the book</h2>' +
+		'<form action="/book" target="_self" method="POST">'+
+		'<div class="selection">'+
+		'<select name="genres">' +
+		'<option value="9002">Nonfiction</option>' +
+		'<option value="9003">Romance</option>' +
+		'<option value="9004">Travel & Adventure</option>' +
+		'<option value="9007">Arts & Entertainment</option>' +
+		'<option value="9008">Biographies & Memoirs</option>' +
+		'<option value="9009">Business & Personal Finance</option>' +
+		'<option value="9010">Children & Teens</option>' +
+		'<option value="9012">Humor</option>' +
+		'<option value="9015">History</option>' +
+		'<option value="9018 science">Religion & Spirituality</option>' +
+		'<option value="9019">Science & Nature</option>' +
+		'<option value="9020">Sci-Fi & Fantasy</option>' +
+		'<option value="9024">Lifestyle & Home</option>' +
+		'<option value="9025">Health, Mind & Body</option>'+
+		'<option value="9026">Comics & Graphic Novels</option>'+
+		'<option value="9027">Computers & Internet</option>'+
+		'<option value="9028">Cookbooks, Food & Wine</option>'+
+		'<option value="9029">Professional & Technical</option>'+
+		'<option value="9030">Parenting</option>'+
+		'<option value="9031">Fiction & Literature</option>'+
+		'<option value="9032">Mysteries & Thrillers</option>'+
+		'<option value="9033">Reference</option>'+
+		'<option value="9034">Politics & Current Events</option>'+
+		'<option value="9035">Sports & Outdoors</option>'+
+		'</select>' +
+		'</div>' +
+		'<input type="submit" class="w3-button w3-round-large"  value="Choose">' +
+		'</form>';
+}
+function game_form(){
+	document.getElementById("third_choose").innerHTML= '<h2>Select type of the game</h2>' +
+		'<form action="/game" target="_self" method="POST">'+
+		'<div class="selection">'+
+		'<select name="genres">' +
+		'<option value="7001">Action</option>' +
+		'<option value="7002">Adventure</option>' +
+		'<option value="7003">Arcade</option>' +
+		'<option value="7004">Board</option>' +
+		'<option value="7005">Card</option>' +
+		'<option value="7006">Casino</option>' +
+		'<option value="7007">Dice</option>' +
+		'<option value="7008">Educational</option>' +
+		'<option value="7009">Family</option>' +
+		'<option value="7010">Kids</option>' +
+		'<option value="7011">Music</option>' +
+		'<option value="7012">Puzzle</option>' +
+		'<option value="7013">Racing</option>' +
+		'<option value="7014">Role Playing</option>' +
+		'<option value="7015">Simulation</option>' +
+		'<option value="7016">Sports</option>' +
+		'<option value="7017">Strategy</option>' +
+		'<option value="7018">Trivia</option>'+
+		'<option value="7019">Word</option>'+
+		'</select>' +
+		'</div>' +
+		'<input type="submit" class="w3-button w3-round-large"  value="Choose">' +
+		'</form>';
+}
+function movie_form(){
+	document.getElementById("third_choose").innerHTML= '<h2>Select type of the movie</h2>' +
+		'<form action="/movie" target="_self" method="POST">'+
+		'<div class="selection">'+
+		'<select name="genres">' +
+		'<option value="28">Action</option>' +
+		'<option value="12">Adventure</option>' +
+		'<option value="16">Animation</option>' +
+		'<option value="35">Comedy</option>' +
+		'<option value="80">Crime</option>' +
+		'<option value="99">Documentary</option>' +
+		'<option value="18">Drama</option>' +
+		'<option value="10751">Family</option>' +
+		'<option value="14">Fantasy</option>' +
+		'<option value="36">History</option>' +
+		'<option value="27">Horror</option>' +
+		'<option value="10402">Music</option>' +
+		'<option value="9648">Mystery</option>' +
+		'<option value="10749">Romance</option>' +
+		'<option value="878">Science Fiction</option>' +
+		'<option value="10770">TV Movie</option>' +
+		'<option value="53">Thriller</option>' +
+		'<option value="10752">War</option>' +
+		'<option value="37">Western</option>' +
+		'</select>' +
+		'</div>' +
+		'<input type="submit" class="w3-button w3-round-large"  value="Choose">' +
+		'</form>';
+}
+function cultural_form(){
+	document.getElementById("third_choose").innerHTML = '<h2>Select type of the cultural promenade</h2>' +
+		'<form action="/cultural" target="_self" method="POST">'+
+		'<div class="selection">'+
+		'<select name="genres">' +
+		'<option value="historical">Historical Places</option>' +
+		'<option value="museum">Museums</option>' +
+		'<option value="art gallery">Art Galleries</option>' +
+		'</select>' +
+		'</div>' +
+		'<input type="submit" class="w3-button w3-round-large"  value="Choose">' +
+		'</form>';
+}
+</script>

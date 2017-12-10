@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Movies</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel='stylesheet' type='text/css' href='./static/eventsuggester.css'/>
+    <link rel='stylesheet' type='text/css' href='./static/mobil.css'/>
+</head>
+<body>
+    <div id="content"></div>
+    <script>
+        function test(response) {
+            console.log(response)
+            content = "";
+            for (i = 0; i < 1; i++) {
+                index = Math.floor((Math.random() * response.results.length))
+                content += "<div class='card col-4'>";
+                content += "<img src='https://image.tmdb.org/t/p/w500" + response.results[i].poster_path + "'>";
+                content += "<h1>" + response.results[index].original_title + "</h1>";
+                content += "<p>" + response.results[index].overview + "</p>";
+                content += "</div>";
+            }
+            document.getElementById("content").innerHTML += content;
+        }
+    </script>
+{% for page in pages %}
+    <script src="https://api.themoviedb.org/3/genre/{{id}}/movies?api_key=94a7e614aff8778905e482a699819375&language=en-US&include_adult=false&sort_by=created_at.asc&page={{page}}&callback=test"></script>
+{% endfor %}
+
+
+
+</body>
+</html>
