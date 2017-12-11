@@ -8,11 +8,11 @@ url = 'https://api.foursquare.com/v2/venues/explore'
 foursquare_limit = 50
 
 # get user location
-# send_url = 'http://freegeoip.net/json'
-# r = requests.get(send_url)
-# j = json.loads(r.text)
-# lat = j['latitude']
-# lon = j['longitude']
+send_url = 'http://freegeoip.net/json'
+r = requests.get(send_url)
+j = json.loads(r.text)
+lat = j['latitude']
+lon = j['longitude']
 
 @app.route("/")
 def main():
@@ -56,7 +56,7 @@ def cultural():
 	    client_id = 'NGZ03R5TJK50MJKXMBM1TDVBCZCVBISG4BRTSZWZOFPRPHIC',
 	    client_secret = 'IQJBFZMQZVB0MZIF1JUOMZ30HAHBBAJTK02FMC42DTY1XT5P',
 	    v = '20170801',
-	    near = 'Istanbul',
+        ll = '{}, {}'.format(lat,lon),
 	    query = value,
 	    venuePhotos = 1,
 	    limit = foursquare_limit
@@ -69,24 +69,24 @@ def cultural():
 	item_name = []
 	item_location = []
 
-	random = []
-	r1 = randint(0, foursquare_limit)
-	random.append(r1)
-	r2 = randint(0, foursquare_limit)
-	r3 = randint(0, foursquare_limit)
-
-	for i in range(0,foursquare_limit):
+	for i in range(0,len(data['response']['groups'][0]['items'])):
 		items.append(data['response']['groups'][0]['items'][i])
 
 		item_name.append(items[i]['venue']['name'])
 		item_image_url.append(items[i]['venue']['featuredPhotos']['items'][0]['prefix']+'original'+items[i]['venue']['featuredPhotos']['items'][0]['suffix'])
 		item_location.append(items[i]['venue']['location']['formattedAddress'])
 
+	random = []
+	r1 = randint(0, len(data['response']['groups'][0]['items'])-1)
+	random.append(r1)
+	r2 = randint(0, len(data['response']['groups'][0]['items'])-1)
+	r3 = randint(0, len(data['response']['groups'][0]['items'])-1)
+
 	while (r2 == r1 or r3 == r1):
 		if r2 == r1:
-			r2 = randint(0, foursquare_limit)
+			r2 = randint(0, len(data['response']['groups'][0]['items'])-1)
 		if r3 == r1:
-			r3 = randint(0, foursquare_limit)
+			r3 = randint(0, len(data['response']['groups'][0]['items'])-1)
 	random.append(r2)
 	random.append(r3)
 
